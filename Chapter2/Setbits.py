@@ -3,13 +3,15 @@ def setbits():
   p = int(input("Enter p:"))
   n = int(input("Enter n:"))
   y = int(input("Enter y:"))
-  mask = ~(~0 << int(n))
+  y_mask = ~(~0 << int(n))
   print bin(y)
-  print bin(mask)
-  y &= mask
+  print bin(y_mask)
+  y &= y_mask
   print bin(y)
-  
+  x_mask = (~(~0 << n)) << (p + 1 - n) 
+  x = x & (~x_mask)
+  x = x | (y << (p + 1 - n))
+  print bin(x)
   
   
 setbits()
-  
